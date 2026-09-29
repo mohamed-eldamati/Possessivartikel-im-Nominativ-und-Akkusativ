@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mein, dein, sein – Deutsch A1</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d2b53;--m:#2f7de1;--mbg:#e3f0ff;--f:#e0447c;--fbg:#ffe4ef;--n:#e08a00;--nbg:#fff1d0;--p:#1f9d6b;--pbg:#dcf7ea;--sun:#ffc93c;--card:#ffffffee}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:'Fredoka','Trebuchet MS',system-ui,sans-serif;font-weight:500;color:var(--ink);padding-bottom:70px;
+background:
+ radial-gradient(circle at 88% 8%,#ffe27a 0 60px,#ffe27a55 61px 110px,transparent 111px),
+ radial-gradient(ellipse 120px 40px at 15% 14%,#fff 60%,transparent 62%),
+ radial-gradient(ellipse 160px 50px at 55% 26%,#ffffffcc 60%,transparent 62%),
+ radial-gradient(ellipse 420px 130px at 20% 100%,#7fd6a0 60%,transparent 61%),
+ radial-gradient(ellipse 520px 160px at 85% 100%,#5cc48a 60%,transparent 61%),
+ linear-gradient(#8fd3ff,#d9f2ff 55%,#fff6d6);background-attachment:fixed}
+header{text-align:center;padding:26px 16px 6px}
+h1{font-size:clamp(2.2rem,7vw,4.2rem);margin:0;font-weight:700;text-shadow:0 4px 0 #fff}
+.sub{font-size:1.2rem;margin:6px 0 0}
+.hero{font-size:clamp(2.4rem,8vw,4rem);display:flex;justify-content:center;gap:.15em;flex-wrap:wrap;margin:6px 0}
+.hero span{display:inline-block;animation:hop 2.6s ease-in-out infinite}
+.hero span:nth-child(2){animation-delay:.25s}.hero span:nth-child(3){animation-delay:.5s}.hero span:nth-child(4){animation-delay:.75s}.hero span:nth-child(5){animation-delay:1s}
+@keyframes hop{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-14px)}}
+nav{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:14px 10px}
+button{font:inherit;color:inherit}
+nav button,.btn{font-weight:600;font-size:1.1rem;border:0;border-radius:999px;padding:12px 22px;background:#fff;cursor:pointer;box-shadow:0 5px 0 #b7c8e6}
+nav button:active,.btn:active{transform:translateY(4px);box-shadow:0 1px 0 #b7c8e6}
+nav button[aria-selected=true]{background:var(--sun);box-shadow:0 5px 0 #d99f00}
+button:focus-visible{outline:4px solid var(--ink);outline-offset:3px}
+#snd{position:fixed;top:12px;right:12px;z-index:5;padding:8px 16px;font-size:1rem}
+main{max-width:1050px;margin:0 auto;padding:0 14px}
+section[hidden]{display:none}
+.box{background:var(--card);border-radius:28px;padding:18px 20px 22px;margin:16px 0}
+.box h2{margin:0 0 6px;font-size:1.7rem}
+.box p{margin:0 0 12px;font-size:1.1rem}
+.merke{background:#fff8d6;border:4px solid var(--sun);border-radius:20px;padding:12px 16px;font-size:1.2rem;font-weight:600;margin:12px 0}
+mark{background:#ffe066;color:inherit;border-radius:6px;padding:0 3px;font-weight:700}
+/* Übersicht */
+.pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.pr{border:4px solid #b7c8e6;background:#fff;border-radius:20px;padding:10px 14px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:1.7rem;font-weight:700}
+.pr i{font-style:normal;color:var(--m)}.pr b{color:var(--f)}
+.pr:hover{transform:translateY(-3px)}
+/* Tabelle Endungen */
+table{width:100%;border-collapse:separate;border-spacing:8px;text-align:center;font-size:1.25rem}
+th{font-size:1rem;opacity:.8}
+td{border-radius:16px;padding:10px 6px;font-weight:600}
+td.m{background:var(--mbg)}td.n{background:var(--nbg)}td.f{background:var(--fbg)}td.p{background:var(--pbg)}
+td.k{font-weight:700}
+/* Picker */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.chip{border:4px solid #b7c8e6;background:#fff;border-radius:999px;padding:6px 16px;font-size:1.2rem;font-weight:600;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px;margin-top:12px}
+.card{text-align:center;border:4px solid;border-radius:24px;padding:12px 10px;cursor:pointer;background:#fff}
+.card:hover{transform:translateY(-4px) rotate(-1deg)}
+.card.m{border-color:var(--m);background:var(--mbg)}.card.n{border-color:var(--n);background:var(--nbg)}
+.card.f{border-color:var(--f);background:var(--fbg)}.card.p{border-color:var(--p);background:var(--pbg)}
+.card .e{font-size:3.6rem;display:block;line-height:1.1}
+.card .a{font-weight:700;font-size:1.1rem}
+.card .w{font-size:1.9rem;font-weight:700;display:block;line-height:1.2}
+.card .s{font-size:1rem;display:block;margin-top:6px}
+.card.on{animation:pop .4s}@keyframes pop{50%{transform:scale(1.08)}}
+.verbs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.vb{background:#fff;border:4px solid #b7c8e6;border-radius:18px;padding:10px 14px;font-size:1.25rem;font-weight:600;cursor:pointer;text-align:left}
+/* Quiz */
+.qbox{background:var(--card);border-radius:28px;padding:22px;max-width:720px;margin:18px auto;text-align:center}
+.stats{display:flex;justify-content:space-between;font-weight:600;font-size:1.15rem;margin-bottom:10px}
+.bar{height:14px;background:#dfe8f7;border-radius:8px;overflow:hidden;margin-bottom:16px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--sun),#ff8a3d);transition:width .3s}
+.pill{display:inline-block;background:var(--ink);color:#fff;border-radius:999px;padding:4px 16px;font-weight:600;margin:0 4px}
+.pill.pr2{background:var(--m)}
+.sent{font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:600;margin:16px 0 6px;line-height:1.3}
+.gap{display:inline-block;min-width:110px;border-bottom:5px solid var(--ink)}
+.big{font-size:4.5rem;min-height:5.5rem;line-height:1.1}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:8px}
+.opt{font-weight:700;font-size:1.5rem;padding:14px;border-radius:18px;border:4px solid #b7c8e6;background:#fff;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--ink)}
+.opt.ok{background:#b8f0cf;border-color:var(--p)}.opt.no{background:#ffc9d6;border-color:var(--f);animation:shake .3s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.fb{font-size:1.3rem;font-weight:700;min-height:3.4rem;margin:12px 0 6px}
+.hidden{display:none}
+.fall{position:fixed;top:-50px;font-size:2.2rem;z-index:9;pointer-events:none;animation:fall 3s linear forwards}
+@keyframes fall{to{transform:translateY(115vh) rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<button class="btn" id="snd" aria-pressed="true">🔊 Ton an</button>
+<header>
+  <div class="hero" aria-hidden="true"><span>🐶</span><span>🚗</span><span>👜</span><span>📚</span><span>🏠</span></div>
+  <h1>Mein, dein, sein …</h1>
+  <p class="sub">Possessivartikel im Nominativ und Akkusativ</p>
+</header>
+<nav role="tablist">
+  <button role="tab" aria-selected="true" data-t="ueb">🧩 Übersicht</button>
+  <button role="tab" aria-selected="false" data-t="nom">1️⃣ Nominativ</button>
+  <button role="tab" aria-selected="false" data-t="akk">2️⃣ Akkusativ</button>
+  <button role="tab" aria-selected="false" data-t="quiz">🎮 Quiz</button>
+</nav>
+<main>
+<section id="ueb">
+  <div class="box"><h2>Wem gehört das?</h2><p>Klicke auf ein Pronomen und höre zu.</p><div class="pg" id="pg"></div>
+    <div class="merke">Possessivartikel stehen vor dem Nomen: <mark>mein</mark> Vater, <mark>meine</mark> Mutter.</div></div>
+</section>
+
+<section id="nom" hidden>
+  <div class="box"><h2>Nominativ: Wer oder was?</h2>
+    <p>Das Nomen ist das Subjekt. Zum Beispiel: <b>Das ist mein Vater.</b></p>
+    <table><tr><th></th><th>der</th><th>das</th><th>die</th><th>die (Plural)</th></tr>
+      <tr><td class="k">Nominativ</td><td class="m">mein</td><td class="n">mein</td><td class="f">mein<mark>e</mark></td><td class="p">mein<mark>e</mark></td></tr></table>
+    <div class="merke">Nominativ: nur feminin und Plural haben die Endung <mark>-e</mark>.</div>
+  </div>
+  <div class="box" id="pk-n"></div>
+</section>
+
+<section id="akk" hidden>
+  <div class="box"><h2>Akkusativ: Wen oder was?</h2>
+    <p>Das Nomen ist das Objekt. Zum Beispiel: <b>Ich habe meinen Vater.</b></p>
+    <table><tr><th></th><th>der</th><th>das</th><th>die</th><th>die (Plural)</th></tr>
+      <tr><td class="k">Nominativ</td><td class="m">mein</td><td class="n">mein</td><td class="f">meine</td><td class="p">meine</td></tr>
+      <tr><td class="k">Akkusativ</td><td class="m">mein<mark>en</mark></td><td class="n">mein</td><td class="f">meine</td><td class="p">meine</td></tr></table>
+    <div class="merke">Nur maskulin ändert sich: <mark>mein → meinen</mark>. Alles andere bleibt gleich!</div>
+    <p>Diese Verben brauchen oft den Akkusativ. Klicke und höre:</p>
+    <div class="verbs" id="verbs"></div>
+  </div>
+  <div class="box" id="pk-a"></div>
+</section>
+
+<section id="quiz" hidden><div class="qbox" id="qbox"></div></section>
+</main>
+
+<script>
+const $=s=>document.querySelector(s);
+const shuf=a=>[...a].sort(()=>Math.random()-.5);
+/* l=Label, sub=Subjekt, s=Stamm, v=haben */
+const P=[
+ {l:'ich',sub:'Ich',s:'mein',v:'habe'},{l:'du',sub:'Du',s:'dein',v:'hast'},
+ {l:'er/es',sub:'Er',s:'sein',v:'hat'},{l:'sie (Sg.)',sub:'Sie',s:'ihr',v:'hat'},
+ {l:'wir',sub:'Wir',s:'unser',v:'haben'},{l:'ihr',sub:'Ihr',s:'euer',v:'habt'},
+ {l:'sie (Pl.)',sub:'Sie',s:'ihr',v:'haben'},{l:'Sie',sub:'Sie',s:'Ihr',v:'haben'}];
+const N={m:[['🐶','Hund'],['👨','Vater'],['🧒','Bruder'],['🧑','Freund']],
+ n:[['👶','Kind'],['🚗','Auto'],['🏠','Haus'],['📖','Buch']],
+ f:[['👩','Mutter'],['🐱','Katze'],['👧','Schwester'],['👜','Tasche']],
+ p:[['👨‍👩','Eltern'],['🧑‍🤝‍🧑','Freunde'],['📚','Bücher'],['👦👧','Kinder']]};
+const ART={m:'der',n:'das',f:'die',p:'die (Pl.)'};
+const endOf=(g,c)=>g==='m'&&c==='a'?'en':(g==='f'||g==='p')?'e':'';
+const fx=(s,e)=>s==='euer'&&e?'eur'+e:s+e;
+const form=(s,g,c)=>fx(s,endOf(g,c));
+const formH=(s,g,c)=>{const e=endOf(g,c);if(!e)return s;return (s==='euer'?'eur':s)+'<mark>'+e+'</mark>';};
+const sentence=(pi,g,c,w)=>{const p=P[pi],f=form(p.s,g,c);
+  return c==='n'?`${g==='p'?'Das sind':'Das ist'} ${f} ${w}.`:`${p.sub} ${p.v} ${f} ${w}.`;};
+
+/* Ton */
+let sound=true,ac;
+function speak(t){if(!sound||!('speechSynthesis' in window))return;speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(t);u.lang='de-DE';u.rate=.8;
+  const v=speechSynthesis.getVoices().find(v=>v.lang&&v.lang.toLowerCase().startsWith('de'));if(v)u.voice=v;speechSynthesis.speak(u);}
+function tone(seq){if(!sound)return;try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();let t=ac.currentTime;
+  seq.forEach(([f,d,ty])=>{const o=ac.createOscillator(),g=ac.createGain();o.type=ty||'sine';o.frequency.value=f;
+  g.gain.setValueAtTime(.18,t);g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(g);g.connect(ac.destination);o.start(t);o.stop(t+d);t+=d*.8;});}catch(e){}}
+const CLICK=()=>tone([[660,.08],[880,.1]]),OK=()=>tone([[523,.12],[659,.12],[784,.22]]),
+ NO=()=>tone([[220,.18,'sawtooth'],[165,.28,'sawtooth']]),WIN=()=>tone([[523,.12],[659,.12],[784,.12],[1047,.35]]);
+$('#snd').onclick=e=>{sound=!sound;e.target.textContent=sound?'🔊 Ton an':'🔇 Ton aus';e.target.setAttribute('aria-pressed',sound);if(!sound)speechSynthesis.cancel();};
+
+/* Tabs */
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('nav button').forEach(x=>x.setAttribute('aria-selected',x===b));
+  ['ueb','nom','akk','quiz'].forEach(id=>$('#'+id).hidden=id!==b.dataset.t);
+  if(b.dataset.t==='quiz'&&!Q.on)startQuiz();
+});
+
+/* Übersicht */
+$('#pg').innerHTML=P.map((p,i)=>`<button class="pr" data-i="${i}"><i>${p.l}</i><b>${p.s}/${p.s==='euer'?'eure':p.s+'e'}</b></button>`.replace(/\/([a-zA-Z]+)<\/b>/,(m,x)=>'/'+x.replace(/^(.*)$/,'$1')+'</b>')).join('');
+$('#pg').onclick=e=>{const b=e.target.closest('.pr');if(!b)return;const p=P[b.dataset.i];CLICK();
+  speak(`${p.l.replace('(Sg.)','').replace('(Pl.)','')} – ${p.s}, ${form(p.s,'f','n')}`);};
+
+/* Picker */
+const S={n:{pi:0,ni:0},a:{pi:0,ni:0}};
+function panel(c){
+  const st=S[c],box=$('#pk-'+c);
+  const cards=['m','n','f','p'].map(g=>{const [e,w]=N[g][st.ni];
+    return `<button class="card ${g}" data-s="${sentence(st.pi,g,c,w)}"><span class="e">${e}</span><span class="a">${ART[g]} ${w}</span><span class="w">${formH(P[st.pi].s,g,c)} ${w}</span><span class="s">${sentence(st.pi,g,c,w)}</span></button>`;}).join('');
+  box.innerHTML=`<h2>Probiere es aus!</h2><p>Wähle ein Pronomen:</p><div class="chips">`+
+   P.map((p,i)=>`<button class="chip" data-c="${c}" data-pi="${i}" aria-pressed="${i===st.pi}">${p.l}</button>`).join('')+
+   `<button class="chip" data-c="${c}" data-ni="1">🔀 Andere Wörter</button></div><div class="grid">${cards}</div>`;
+}
+document.addEventListener('click',e=>{
+  const ch=e.target.closest('.chip');
+  if(ch){const c=ch.dataset.c;if(ch.dataset.ni)S[c].ni=(S[c].ni+1)%4;else S[c].pi=+ch.dataset.pi;CLICK();panel(c);return;}
+  const cd=e.target.closest('.card');
+  if(cd){CLICK();speak(cd.dataset.s);cd.classList.remove('on');void cd.offsetWidth;cd.classList.add('on');}
+  const vb=e.target.closest('.vb');if(vb){CLICK();speak(vb.dataset.s);}
+});
+panel('n');panel('a');
+const VB=[['🐶','Ich habe meinen Hund.'],['👀','Du siehst deinen Bruder.'],['❤️','Er liebt seine Mutter.'],['🛒','Wir kaufen unser Auto.'],['🎒','Ihr braucht eure Tasche.'],['🤝','Sie kennen Ihren Lehrer.']];
+$('#verbs').innerHTML=VB.map(v=>`<button class="vb" data-s="${v[1]}">${v[0]} ${v[1].replace(/(meinen|deinen|seine|unser|eure|Ihren)/,'<mark>$1</mark>')}</button>`).join('');
+
+/* Quiz */
+const Q={on:0};
+const rule=(c,g)=>c==='a'&&g==='m'?'Akkusativ + maskulin: Endung -en!':c==='a'?'Akkusativ: nur maskulin ändert sich.':g==='m'||g==='n'?'Nominativ: maskulin und neutral ohne Endung.':'Nominativ: feminin und Plural haben -e.';
+function startQuiz(){
+  const list=[];for(let i=0;i<10;i++){const c=i%2?'a':'n',g=['m','n','f','p'][(i*3+Math.floor(Math.random()*4))%4];
+    list.push({c,g,pi:Math.floor(Math.random()*8),ni:Math.floor(Math.random()*4)});}
+  Object.assign(Q,{on:1,n:0,score:0,streak:0,best:0,list:shuf(list),done:0});ask();}
+function ask(){
+  if(Q.n>=Q.list.length)return end();
+  const q=Q.list[Q.n],p=P[q.pi],[e,w]=N[q.g][q.ni];Q.done=0;
+  const correct=form(p.s,q.g,q.c);
+  const others=shuf(P.filter(o=>o.s.toLowerCase()!==p.s.toLowerCase())).slice(0,2).map(o=>form(o.s,q.g,q.c));
+  const pool=[...new Set([fx(p.s,''),fx(p.s,'e'),fx(p.s,'en'),...others])].filter(x=>x!==correct);
+  const opts=shuf([correct,...shuf(pool).slice(0,3)]);
+  const full=sentence(q.pi,q.g,q.c,w),blank=full.replace(correct,'<span class="gap" id="gap"></span>');
+  q.full=full;q.correct=correct;
+  $('#qbox').innerHTML=`<div class="stats"><span>Frage ${Q.n+1} von ${Q.list.length}</span><span>⭐ ${Q.score}</span><span>🔥 ${Q.streak}</span></div>
+  <div class="bar"><i style="width:${Q.n/Q.list.length*100}%"></i></div>
+  <div><span class="pill pr2">${p.l}</span><span class="pill">${q.c==='n'?'Nominativ':'Akkusativ'}</span></div>
+  <div class="sent">${blank}</div><p>(${ART[q.g]} ${w})</p><div class="big" id="big">❓</div>
+  <div class="opts">${opts.map(o=>`<button class="opt" data-o="${o}">${o}</button>`).join('')}</div>
+  <div class="fb" id="fb"></div><button class="btn hidden" id="next">Weiter ➜</button>`;
+  document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>pick(b,q,e));
+  $('#next').onclick=()=>{Q.n++;ask();};
+}
+function pick(b,q,e){
+  if(Q.done)return;Q.done=1;const ok=b.dataset.o===q.correct;
+  document.querySelectorAll('.opt').forEach(o=>{o.disabled=true;if(o.dataset.o===q.correct)o.classList.add('ok');});
+  $('#gap').textContent=q.correct;$('#big').textContent=e;
+  if(ok){Q.score++;Q.streak++;Q.best=Math.max(Q.best,Q.streak);OK();
+    $('#fb').textContent=(Q.streak>=3?`Super! ${Q.streak} in Folge! 🔥 `:'Richtig! 🎉 ')+rule(q.c,q.g);}
+  else{b.classList.add('no');Q.streak=0;NO();$('#fb').textContent='Fast! '+rule(q.c,q.g);}
+  speak(q.full);$('#next').classList.remove('hidden');$('#next').focus();
+}
+function end(){
+  const s=Q.score,n=Q.list.length,msg=s>=9?'Fantastisch! Du bist ein Profi! 🏆':s>=6?'Sehr gut! Weiter so! 👏':'Gut gemacht! Übe noch einmal. 💪';
+  $('#qbox').innerHTML=`<div class="big">${s>=6?'🏆':'🌟'}</div><h2>${s} von ${n} Punkten</h2><p class="sent">${msg}</p><p>Beste Serie: 🔥 ${Q.best}</p><button class="btn" id="again">🔄 Nochmal spielen</button>`;
+  $('#again').onclick=startQuiz;Q.on=0;if(s>=6){WIN();speak(msg);confetti();}
+}
+function confetti(){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const em=['🎉','⭐','💛','🎈','🐶'];
+  for(let i=0;i<28;i++){const s=document.createElement('span');s.className='fall';s.textContent=em[i%5];
+   s.style.left=Math.random()*100+'vw';s.style.animationDelay=Math.random()*1.2+'s';document.body.appendChild(s);setTimeout(()=>s.remove(),4500);}
+}
+if('speechSynthesis' in window)speechSynthesis.getVoices();
+</script>
+</body>
+</html>
